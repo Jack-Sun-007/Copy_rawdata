@@ -30,8 +30,9 @@ def get_raw_list(file_path):
     else:
         dir_list = sorted(dir_list,  key=lambda x: os.path.getmtime(os.path.join(file_path, x)),reverse = True)
         for file in dir_list:
-            if "STRONGWASH" not in file:
-                raw_list.append(file)
+            if ".raw" in file:
+                if "STRONGWASH" not in file:
+                    raw_list.append(file)
         return raw_list
 
 
